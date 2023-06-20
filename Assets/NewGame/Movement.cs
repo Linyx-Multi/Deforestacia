@@ -8,15 +8,16 @@ public class Movement : MonoBehaviour
     // Variables for different parts of the script, the names should explain enough, yeeeessss....?
 
     private float horizontal;
-    private float speed = 6f;
-    private float jumpingPower = 7f;
     private bool isFacingRight = true;
 
     // Cereal-ized Fields.. got a transformed, rigid mask..
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
- 
+
+    [SerializeField] private float speed = 6f;
+    [SerializeField] private float jumpingPower = 7f;
+
     // OncePerFrame update check for if playercharacter needs flip, oh and jumping.. thats probably important.. i think?
     void Update()
     {
@@ -60,5 +61,11 @@ public class Movement : MonoBehaviour
                 localScale.x *= -1f;
                 transform.localScale = localScale;
          }
+    }
+
+    public void devastationEffects()
+    {
+        speed *= 0.75f;
+        jumpingPower *= 0.75f;
     }
 }
